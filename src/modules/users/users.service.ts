@@ -11,15 +11,16 @@ export class UsersService {
       where: {
         id,
       },
+      select: {
+        name: true,
+        email: true,
+      },
     });
 
     if (!user) {
       throw new NotFoundException();
     }
 
-    return {
-      name: user.name,
-      email: user.email,
-    };
+    return user;
   }
 }
