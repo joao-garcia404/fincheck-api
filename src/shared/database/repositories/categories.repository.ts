@@ -8,7 +8,11 @@ import { PrismaService } from '../prisma.service';
 export class CategoriesRepository {
   constructor(private readonly prismaService: PrismaService) {}
 
-  async findMany(findMany: Prisma.CategoryFindManyArgs) {
-    return this.prismaService.category.findMany(findMany);
+  async findFirst(findFirstDto: Prisma.CategoryFindFirstArgs) {
+    return this.prismaService.category.findFirst(findFirstDto);
+  }
+
+  async findMany(findManyDto: Prisma.CategoryFindManyArgs) {
+    return this.prismaService.category.findMany(findManyDto);
   }
 }
